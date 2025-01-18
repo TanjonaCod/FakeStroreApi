@@ -22,8 +22,8 @@ api().then(e =>{
                 <img src="${el.image}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${el.title.slice(0,25)}</h5>
-                    <p class="card-text">${el.title.slice(0,50)+' ...'}</p>
-                    <button class="btn btn-primary">voir plus</button>
+                    <p class="card-text">${el.description.slice(0,50)+' ...'}</p>
+                    <button class="btn btn-primary readMore">voir plus</button>
                 </div>
                 </div>
             </div>
@@ -31,6 +31,33 @@ api().then(e =>{
         `
     });
     row_produit.innerHTML = htmlStr
+    let btn = document.querySelectorAll('.readMore')
+    let popup = document.querySelector('.popup')
+    
+    let image = document.querySelector('.image')
+    let titre = document.querySelector('.titre')
+    let paragraphe = document.querySelector('.paragraphe')
+    let close = document.querySelector('.close')
+
+    close.addEventListener('click',()=>{
+        popup.classList.remove('active')
+        image.src = ''
+        paragraphe.textContent =  ''
+        titre.textContent = ''
+    })
+
+
+    console.log(btn);
+    
+    btn.forEach((k,j)=>{
+        k.addEventListener('click',()=>{
+            popup.classList.add('active')
+            image.src = e[j].image
+            paragraphe.textContent =  e[j].description
+            titre.textContent = e[j].title
+        })
+    })
+
 
 })
 

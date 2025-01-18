@@ -2,3 +2,40 @@
     width: 100%;
     height: 250px;
 }
+
+.popup.active{
+    width: 90%;
+    height: auto;
+
+    position: fixed;
+    top: 40%;
+    left: 5%;
+    transition: 0.7s;
+    background-color: azure;
+}
+
+.popup{
+    width: 90%;
+    height: auto;
+
+    position: absolute;
+    top: 40%;
+    left: -100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.imagebox{
+    width: 200px;
+    height: 200px;
+}
+.imagebox img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+.text{
+    width: 50%;
+    height: auto;
+    margin: 0 0 1%;
+}
